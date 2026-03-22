@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoría Técnica Especializada - INNOMMX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        body {
+            background: #f8f9fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(120deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #00d4ff !important;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            pointer-events: none;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #00d4ff, #0099ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero .lead {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Content Section */
+        .service-content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-top: -60px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .service-content h2 {
+            color: #0f3460;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-content .lead {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list i {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Feature Cards */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 18px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: #0f3460;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #00d4ff, #0099ff);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4);
+            background: linear-gradient(120deg, #0099ff, #0077dd);
+        }
+
+        .breadcrumb {
+            background: transparent;
+            padding: 10px 0;
+        }
+
+        .breadcrumb-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item.active {
+            color: #0f3460;
+            font-weight: 700;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(120deg, #25d366, #20ba5f);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .service-content {
+                padding: 30px 20px;
+                margin-top: -40px;
+            }
+
+            .service-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">INNOMMX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#acerca">Acerca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#maquinaria">Maquinaria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero" data-aos="fade-down">
+        <h1>Asesoría Técnica Especializada</h1>
+        <p class="lead">Consultoría experta para optimizar tus procesos industriales</p>
+    </section>
+
+    <!-- Breadcrumb y Contenido -->
+    <div class="container">
+        <nav aria-label="breadcrumb" data-aos="fade-up">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="index.html#servicios">Servicios</a></li>
+                <li class="breadcrumb-item active">Asesoría Técnica</li>
+            </ol>
+        </nav>
+
+        <div class="service-content" data-aos="zoom-in">
+            <h2 className="mb-4">Asesoría Técnica Integral</h2>
+            <p class="lead">En INNOMMX ofrecemos consultoría técnica personalizada con más de 10 años de experiencia. Nuestro equipo de expertos te acompañará en cada fase de tu proyecto para garantizar soluciones óptimas.</p>
+
+            <h3 class="mt-5 mb-4 fw-7">Servicios Que Ofrecemos</h3>
+            <ul class="service-list">
+                <li><i class="bi bi-gear-fill"></i> <strong>Selección de Equipos</strong> - Identificamos la maquinaria perfecta para tus necesidades específicas</li>
+                <li><i class="bi bi-graph-up-arrow"></i> <strong>Optimización de Procesos</strong> - Mejoramos eficiencia y productividad en tus operaciones</li>
+                <li><i class="bi bi-building"></i> <strong>Diseño de Plantas</strong> - Planificación y distribución de equipos en tus instalaciones</li>
+                <li><i class="bi bi-lightning-fill"></i> <strong>Análisis Energético</strong> - Evaluamos eficiencia energética para reducir costos operativos</li>
+                <li><i class="bi bi-shield-check"></i> <strong>Validación Técnica</strong> - Certificación y validación de procesos según estándares internacionales</li>
+            </ul>
+
+            <!-- Feature Cards -->
+            <div class="feature-cards">
+                <div class="feature-card" data-aos="flip-left">
+                    <i class="bi bi-person-check"></i>
+                    <h4>Equipo Experto</h4>
+                    <p>Profesionales con más de una década de experiencia en pulverización industrial</p>
+                </div>
+                <div class="feature-card" data-aos="flip-up">
+                    <i class="bi bi-target"></i>
+                    <h4>Soluciones Personalizadas</h4>
+                    <p>Adaptamos nuestros servicios exactamente a tus requerimientos específicos</p>
+                </div>
+                <div class="feature-card" data-aos="flip-right">
+                    <i class="bi bi-shield-lock"></i>
+                    <h4>Garantía de Calidad</h4>
+                    <p>Respaldamos todas nuestras asesorías con certificaciones internacionales</p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section" data-aos="zoom-in">
+                <h2>¿Listo para Optimizar tu Producción?</h2>
+                <p>Contacta con nuestro equipo de expertos hoy mismo</p>
+                <a href="index.html#contacto" class="btn btn-primary btn-lg">Solicitar Asesoría Ahora</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/525584690433?text=Hola%2C%20me%20interesa%20solicitar%20Asesor%C3%ADa%20T%C3%A9cnica%20Especializada.%20%C2%BFMe%20pueden%20ayudar%3F" target="_blank" class="whatsapp-float" title="Contactar por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 850,
+            once: true,
+            offset: 80,
+            disable: function() { return window.innerWidth < 768; }
+        });
+    </script>
+</body>
+</html>

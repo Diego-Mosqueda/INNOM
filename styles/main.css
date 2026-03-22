@@ -1,0 +1,590 @@
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #6c757d;
+    --dark-bg: #212529;
+    --light-bg: #f8f9fa;
+    --white-bg: #ffffff;
+    --accent: #00a5ff;
+    --muted: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--dark-bg);
+}
+
+/* Smooth scrolling for anchor navigation */
+html { scroll-behavior: smooth; }
+
+/* Navbar Glassmorphism */
+.navbar {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,249,250,0.95));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+}
+
+.brand-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-bg);
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--dark-bg);
+    transition: color 0.3s ease;
+}
+
+.btn-icon:hover {
+    color: var(--primary-color);
+}
+
+/* Search Bar */
+.search-bar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Smaller page hero used on product/service detail pages */
+.page-hero {
+    position: relative;
+    height: 360px;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.page-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+    z-index: 1;
+}
+
+.page-hero .hero-inner {
+    position: relative;
+    z-index: 3;
+    padding-left: 12%;
+}
+
+.page-hero h1 {
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 768px) {
+    .page-hero { 
+        height: 280px; 
+        padding: 1.5rem 0; 
+    }
+    .page-hero .hero-inner { 
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 100%;
+    }
+    .page-hero h1 { 
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-hero { 
+        height: 240px; 
+        padding: 1rem 0; 
+    }
+    .page-hero .hero-inner { 
+        padding-left: 15px;
+        padding-right: 15px;
+        max-width: 100%;
+    }
+    .page-hero h1 { 
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+}
+
+.carousel-item img {
+    height: 100vh;
+    object-fit: contain;
+    object-position: center;
+    background: linear-gradient(135deg, #0a1f3b 0%, #0f3460 35%, #1a4d7a 65%, #0f3460 100%);
+}
+
+/* Carrusel Fade Effect en los lados */
+.hero-section .carousel {
+    position: relative;
+    overflow: visible;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+.hero-section .carousel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-section .carousel::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(10, 25, 45, 0.5) 0%, rgba(10, 25, 45, 0.3) 35%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0px;
+}
+
+.hero-content .lead {
+    font-size: 1.3rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.98);
+}
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        left: 40px;
+        max-width: calc(100% - 80px);
+    }
+    
+    .hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content .lead {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content {
+        left: 25px;
+        max-width: calc(100% - 50px);
+    }
+    
+    .hero-content h1 {
+        font-size: 1.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-content .lead {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent));
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.6rem;
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(0, 165, 255, 0.4);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-bg);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Cards */
+.info-card, .machinery-card, .service-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 24px rgba(16, 24, 40, 0.06);
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 70%);
+    position: relative;
+    overflow: visible; /* allow accent to extend */
+}
+
+.info-card:hover, .machinery-card:hover, .service-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.08);
+}
+
+/* New card accent bar */
+.card-accent {
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    right: 10px;
+    height: 6px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(0,165,255,1), rgba(0,102,204,1));
+    box-shadow: 0 6px 16px rgba(0,165,255,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover .card-accent {
+    transform: translateY(-2px) scaleX(1.02);
+    box-shadow: 0 12px 28px rgba(0,165,255,0.14);
+}
+
+/* Card body tweaks */
+.card-body .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.card-body .card-text {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* CTA footer inside card */
+.card-footer { 
+    border-top: 1px solid rgba(0,0,0,0.04);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.card-cta-link {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.card-cta-link:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Icon wrapper - subtle background and gradient */
+.icon-wrapper {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #f6fbff, #ffffff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.03);
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* Subtle pop-in for cards when hovering on desktop */
+@media (hover: hover) {
+  .card:hover { transform: translateY(-6px) scale(1.02) !important; }
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(180deg, #13b36b, #17a058);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+    color: white;
+}
+
+/* WhatsApp CTA button used in Contact section */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #00c853, #00a65a);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.12);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 200, 83, 0.16);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Subtle card top border accent */
+.card-img-top {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: inset 0 -8px 24px rgba(0,0,0,0.04);
+}
+
+/* Spacing between navbar items */
+.navbar-nav .nav-link {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+}
+
+/* Brand on left side of navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-right: 2rem;
+}
+
+/* Improve breadcrumbs readability */
+.breadcrumb a {
+    color: var(--muted);
+}
+
+/* Subtle hover for breadcrumb links */
+.breadcrumb a:hover {
+    color: var(--primary-color);
+}
+
+/* Enhanced Video Responsiveness */
+@media (max-width: 1200px) {
+    .video-container {
+        max-width: 95% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        border-radius: 16px !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .molino-video {
+        border-radius: 16px !important;
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-container {
+        margin-bottom: 1.5rem !important;
+        border-radius: 12px !important;
+    }
+
+    .video-badge {
+        font-size: 0.7rem !important;
+        padding: 8px 12px !important;
+    }
+}
+
+/* Service Card Enhancements */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:active {
+    transform: scale(0.98);
+}
+
+/* Accessibility Focus */
+.machinery-card:focus-visible,
+.service-card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) {
+    .machinery-card,
+    .service-card {
+        min-height: 60px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .machinery-card,
+    .service-card {
+        page-break-inside: avoid;
+    }
+}
